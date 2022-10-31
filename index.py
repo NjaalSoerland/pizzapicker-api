@@ -30,7 +30,10 @@ async def fetchPizzas(URL = "https://www.pizzabakeren.no/originalpizza"):
                     summary = option.text.split("\n")
                     if len(summary) < 3:
                         summary.append("Ingen")
-                    pizza = {"name": summary[0], "description": summary[1], "extra": summary[2]}
+                    extra = summary[2]
+                    if extra.count("Allergener:") > 1:
+                        extra = extra[:extra.find("Allergener", 11)-1]
+                    pizza = {"name": summary[0], "description": summary[1], "extra": extra}
                     pizzas[category].append(pizza)
 
     return pizzas
