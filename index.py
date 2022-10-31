@@ -1,5 +1,5 @@
 from requests_html import AsyncHTMLSession
-from flask import Flask
+from aioflask import Flask
 from flask_cors import CORS
 import nest_asyncio
 
