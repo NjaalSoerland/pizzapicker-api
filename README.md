@@ -7,4 +7,4 @@ pip install -r requirements.txt
 flask run
 ```
 
-The api also runs on https://pizzapicker-api.vercel.app/
+The api is running on https://pizzapicker-api.vercel.app/
