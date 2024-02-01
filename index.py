@@ -40,7 +40,12 @@ async def fetchPizzas(URL="https://www.pizzabakeren.no/originalpizza"):
                 extra = extra[:extra.find("Allergener", 11) - 1]
             pizza = {"name": summary[0],
                      "description": summary[1], "extra": extra}
+
+            if pizza in pizzas[category]:
+                continue
             pizzas[category].append(pizza)
+        
+        pizzas[category].sort(key=lambda x: x["name"])
 
     for link in links:
         for category in pizzas.keys():
